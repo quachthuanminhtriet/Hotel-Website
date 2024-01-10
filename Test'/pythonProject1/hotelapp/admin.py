@@ -8,6 +8,7 @@ from flask_admin import BaseView, expose, AdminIndexView
 from flask import redirect, request
 from flask_admin.form import Select2Field
 
+
 class AuthenticatedAdmin(ModelView):
     def is_accessible(self):
         return current_user.is_authenticated and current_user.user_role == UserRoleEnum.ADMIN

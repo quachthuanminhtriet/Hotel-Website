@@ -24,7 +24,7 @@
                     <!--                </p>-->
                     <!--                {% endif %}-->
                     <a href="/rooms/{{r.id}}" class="btn btn-primary">Xem chi tiết</a>
-                    <a href="javascript:;" class="btn btn-danger">Đặt phòng</a>
+                    <a href="javascript:;" class="btn btn-danger" onclick="addToCart({{r.id}}, '{{r.name}}', {{r.price}})">Đặt phòng</a>
                 </div>
             </div>
         </div>

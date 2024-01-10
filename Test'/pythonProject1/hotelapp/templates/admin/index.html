@@ -4,7 +4,7 @@
 
 {% if current_user.is_authenticated %}
 <h1 class="text-center text-info">CHÀO MỪNG BẠN ĐẾN TRANG QUẢN TRỊ!!!</h1>
-<h2 class="text-success">Chào {{ current_user.username }}!</h2>
+<h2 class="text-success">Chào {{ current_user.name }}!</h2>
 {% else %}
 <h1 class="text-center text-info">ĐĂNG NHẬP QUẢN TRỊ</h1>
 <form method="post" action="/admin/login">

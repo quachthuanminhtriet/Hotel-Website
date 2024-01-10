@@ -1,6 +1,7 @@
-from hotelapp.models import Rooms, User, TypeOfRooms
+from hotelapp.models import Rooms, User, TypeOfRooms, Receipt, ReceiptDetails
 from hotelapp import app, db
 import hashlib
+from flask_login import current_user
 from sqlalchemy import func
 
 
@@ -53,3 +54,24 @@ def auth_user(username, password):
     password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
     return User.query.filter(User.username.__eq__(username),
                              User.password.__eq__(password)).first()
+
+
+def add_receipt(cart):
+    if cart:
+        r = Receipt(user=current_user)
+        db.session.add(r)
+
+        for c in cart.values():
+            d = ReceiptDetails(quantity=c['quantity'], price=c['price'], receipt=r, rooms_id=c['id'])
+            db.session.add(d)
+
+        try:
+            db.session.commit()
+        except:
+            return False
+        else:
+            return True
+
+    return False
+
+

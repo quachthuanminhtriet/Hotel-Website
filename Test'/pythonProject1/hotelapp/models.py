@@ -112,13 +112,29 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        u = User(username='admin',
-                 password=str(hashlib.md5('123456'.encode('utf-8')).hexdigest()),
-                 user_role=UserRoleEnum.ADMIN)
+        # u = User(username='admin',
+        #          password=str(hashlib.md5('123456'.encode('utf-8')).hexdigest()),
+        #          user_role=UserRoleEnum.ADMIN)
+        #
+        # st = Staff(name='Triet', cccd='123456789', birth_day='2003-05-07', user_id=1)
+        # db.session.add(st)
+        # db.session.add(u)
+        # db.session.commit()
 
-        st = Staff(name='Triet', cccd='123456789', birth_day='2003-05-07', user_id=1)
-        db.session.add(st)
-        db.session.add(u)
+        # tor1 = TypeOfRooms(name='Phòng dành cho Gia Đình')
+        # tor2 = TypeOfRooms(name='Phòng Đơn')
+        # tor3 = TypeOfRooms(name='Phòng Đôi')
+        # tor4 = TypeOfRooms(name='Phòng Hai Giường')
+        #
+        # db.session.add_all([tor1, tor2, tor3, tor4])
+        # db.session.commit()
+
+        r1 = Rooms(name='Phòng 01', price=25000000, typeofrooms_id=2)
+        r2 = Rooms(name='Phòng 02', price=25000000, typeofrooms_id=3)
+        r3 = Rooms(name='Phòng 03', price=25000000, typeofrooms_id=4)
+        r4 = Rooms(name='Phòng 04', price=25000000, typeofrooms_id=1)
+
+        db.session.add_all([r1, r2, r3, r4])
         db.session.commit()
 
         # db.drop_all()

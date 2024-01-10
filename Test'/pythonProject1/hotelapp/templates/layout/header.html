@@ -14,9 +14,13 @@
                 </li>
                 {% endfor %}
 
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="/cart">&#128722; <span class="badge bg-danger cart-counter"></span></a>
+                </li>
+
             </ul>
             <form class="d-flex">
-                <input class="form-control me-3" style="width: 500px" type="text" name="kw" placeholder="Search">
+                <input class="form-control me-3" style="width: 400px" type="text" name="kw" placeholder="Search">
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>
